@@ -16,24 +16,25 @@ self.addEventListener('install', function(event) {
   );
 });
 
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request.clone()).then(function(resp) {
-          if (resp.status<400) {
-            cache.put(event.request, resp.clone());
-          }
-          return resp;
-        });
-      })
-  );
-});
-
-
+// self.addEventListener('fetch', function(event) {
+//   event.respondWith(
+//     caches.match(event.request)
+//       .then(function(response) {
+//         console.log('response', response)
+//         if (response) {
+//           return response;
+//         }
+//         console.log('event.request', event.request)
+//         console.log('event.request.clone()', event.request.clone())
+//         // return fetch(event.request);
+//         return fetch(event.request.clone()).then(function(resp) {
+//           cache.put(event.request, resp.clone());
+//           console.log('resp', resp)
+//           return resp;
+//         });
+//       })
+//   );
+// });
 self.addEventListener("fetch", function(event) {
   event.respondWith(
     caches.open(CACHE_NAME).then(function(cache) {
@@ -42,7 +43,7 @@ self.addEventListener("fetch", function(event) {
           return resp;
         }
         return fetch(event.request.clone()).then(function(resp) {
-          if (resp.status<400 && (resp.url.indexOf("a.json")>=0)) {
+          if (resp.status<400) {
             cache.put(event.request, resp.clone());
           }
           return resp;
