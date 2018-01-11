@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TEST</title>
+</head>
+<body>
+    <h1>sw test</h1>
+
+    <input id="url" type="text" name="" value="">
+    <button id="add" type="button" name="button">add</button>
+    <div id="list">
+    </div>
+
+    <img src="318-10832.jpg" alt="github">
+    <script type="text/javascript">
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/blog/test/service-worker.js', {
+            scope: '/blog/test/'
+          }).then(function(registration) {
+            console.log('서비스워커 등록 성공 ', registration.scope);
+          }).catch(function(err) {
+            console.log('서비스워커 등록 실패: ', err);
+          });
+        }
+    </script>
+</body>
+</html>
