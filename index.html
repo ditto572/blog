@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TEST</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://cdn.rawgit.com/chrisvfritz/5f0a639590d6e648933416f90ba7ae4e/raw/974aa47f8f9c5361c5233bd56be37db8ed765a09/currency-validator.js"></script>
+</head>
+<body>
+    <h1>sw test</h1>
+
+    <input id="url" type="text" name="" value="">
+    <button id="add" type="button" name="button">add</button>
+    <div id="list">
+    </div>
+    <a href="/blog/test/">Vue test</a>
+
+    <img src="/blog/static/318-10832.jpg" alt="github">
+    <script type="text/javascript">
+        // 서비스 워커 API가 사용 가능한지 확인하고 사용 가능한 경우 페이지가 로드되면 /sw.js에 있는 서비스 워커를 등록합니다.
+        // 페이지를 로드할 때마다 register()를 호출할 수 있습니다. 브라우저가 서비스 워커의 등록 여부를 확인하고 그에 따라 처리합니다.
+        if ('serviceWorker' in navigator) {
+          // register() 메서드에서 한 가지 주의할 점은 서비스 워커 파일의 위치입니다.
+          // 이 예에서는 서비스 워커 파일이 도메인의 루트에 있습니다.
+          // 즉, 서비스 워커의 범위는 전체 원천(origin)입니다. 다시 말하면, 서비스 워커는 이 도메인의 모든 항목에 대한 fetch 이벤트를 수신합니다.
+          navigator.serviceWorker.register('/blog/service-worker.js') // response: Promise
+            .then(function(registration) {
+              console.log('서비스워커 등록 성공 ', registration.scope);
+            }).catch(function(err) {
+              console.log('서비스워커 등록 실패: ', err);
+            });
+        }
+    </script>
+    <script src="/blog/static/instantclick.js" data-no-instant></script>
+    <script data-no-instant>InstantClick.init();</script>
+</body>
+</html>
