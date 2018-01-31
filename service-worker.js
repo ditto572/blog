@@ -12,8 +12,8 @@ self.addEventListener('install', function(event) {
       // cache 등록 합니다.
       return cache.addAll([
         '/',
-        'https://unpkg.com/vue/dist/vue.js"',
-        'https://cdn.rawgit.com/chrisvfritz/5f0a639590d6e648933416f90ba7ae4e/raw/974aa47f8f9c5361c5233bd56be37db8ed765a09/currency-validator.js'
+        '/blog/',
+        '/blog/test/',
       ]);
     }).then(function(){
       console.log('설치완료');
