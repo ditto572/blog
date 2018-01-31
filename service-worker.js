@@ -11,9 +11,7 @@ self.addEventListener('install', function(event) {
       console.log('install cache', cache);
       // cache 등록 합니다.
       return cache.addAll([
-        '/',
-        '/blog/',
-        '/blog/test/',
+        '/'
       ]);
     }).then(function(){
       console.log('설치완료');
